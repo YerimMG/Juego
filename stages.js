@@ -17,6 +17,17 @@ class Board {
   drawTerra() {
     ctx.fillStyle = "black";
     ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.fillRect(this.x, this.y-150, this.width, this.height);
+
     ctx.save();
+  }
+  obstacule (){
+        ctx.strokeStyle = "#FF0000";
+
+    ctx.lineWidth = 5;
+
+    ctx.strokeRect(this.x, this.y-151, this.width, this.height*this.height);
+    
+
   }
 }
