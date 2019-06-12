@@ -17,6 +17,9 @@ class Player {
     this.height = 30;
 
     this.life = 5;
+
+    this.keyPush = false
+    this.keyUp = false
   }
   moveLeft(top) {
     if (this.x > top) {
@@ -24,23 +27,36 @@ class Player {
     }
   }
   moveRight(top) {
-    if (this.x < top) this.x += 5;
+    if (this.x < top) 
+      this.x += 5;
   }
   velocidad1() {
-    this.velocidad1 = new Date().getTime();
-  }
+    if(this.velocidad1 = new Date().getTime()){
+      this.keyPush = true
+      }
+    };
+  
   velocidad2() {
-    this.velocidad2 = new Date().getTime();
+    if(this.velocidad2 = new Date().getTime()){
+      this.keyUp = true
+    };
   }
   velocidadFinal(){
     this.velocidad = Math.floor(((this.velocidad1 - this.velocidad2) * -1) / 10);
-    console.log(this.velocidad)
+    if(this.velocidad > 100){
+      this.velocidad = 200
+    }
 
   }
 
   drawPlayer() {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, canvas.height - this.y, this.width, this.height);
+    // ctx.fillRect(this.x, canvas.height- this.y - 5, this.width/2, this.height/2);
     ctx.save();
   }
 }
+
+
+
+
