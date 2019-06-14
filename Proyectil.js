@@ -1,13 +1,13 @@
 //VARIABLES
 var canvas = document.getElementById("example");
 var ctx = canvas.getContext("2d");
-var time = 0;
+
 // canvas.width = window.innerWidth ;
 // canvas.height = window.innerHeight; 
 
 //CLASES
 class Proyectil {
-  constructor(x, y, z, a, v) {
+  constructor(x, y, z, a, v, t) {
     this.x = x;
     this.y = y;
     this.color = z;
@@ -16,21 +16,22 @@ class Proyectil {
 
     this.angulo = a;
     this.velocidad = v;
+    this.time = t;
   }
   trayectoria() {
-    time += 0.033 * 3;
+    this.time += 0.033 * 3;   
     //Movimento de Y
     this.anguloRadians = (this.angulo * Math.PI) / 180;
     this.velocidadYinicial = this.velocidad * Math.sin(this.anguloRadians);
     this.y1 =
-      (tierra.gravedad * time * time) / 2 +
-      this.velocidadYinicial * time +
+      (tierra.gravedad * this.time * this.time) / 2 +
+      this.velocidadYinicial * this.time +
       this.y;
 
     //Movimiento de X
     this.velocidadXinicial = this.velocidad * Math.cos(this.anguloRadians);
-    this.x1 = this.x + this.velocidadXinicial * time;
-    this.x2 = this.x - this.velocidadXinicial * time;
+    this.x1 = this.x + this.velocidadXinicial * this.time;
+    this.x2 = this.x - this.velocidadXinicial * this.time;
   }
 
   drawShot() {
@@ -41,8 +42,7 @@ class Proyectil {
       this.width,
       this.height
     );
-    console.log("y=", this.y1, "x=", this.x1);
-  
+    // console.log("y=", this.y1, "x=", this.x1);
   }
 
   drawShot2() {
@@ -55,27 +55,35 @@ class Proyectil {
     );
   }
 
-  crash1(enemy) {
-    return (
-      this.y1 < 0 ||
-      this.x1 >= canvas.width &&
-      this.y1 <= tierra.width ||
-      this.x1 > tierra.x - 25
-    );
+  crash1() {
+    return  (this.y1 < 0) ||
+      (this.x1 >= canvas.width) ||
+      (this.y1 <= tierra.height) &&
+      (this.x1 >= tierra.x - tierra.width / 4.5)&&
+      (this.x1 <= tierra.x + tierra.width / 4.5)
   }
-  // return (this.x < enemy.x + enemy.width) &&
-  //        (this.x + this.w > enemy.x)  &&
-  //        (this.y < enemy.y + enemy.width) &&
-  //        (this.y + this.width > enemy.y);
 
-  //(this.y1 < 0)   ||
-  //(this.x1 >= canvas.width ) ||
-  //(this.y1 >= tierra.height) ||
+  crashWhit1(enemy){
+    return (this.x1 >= enemy.x) && 
+    (this.x1 <= enemy.x + enemy.width) && 
+    (this.y1 <= enemy.y + enemy.height) &&
+    (this.y1 >= enemy.y - enemy.height)
+  }
+
+
+    crash2() {
+    return (this.y1 < 0) ||
+    (this.x2 <= 0) ||
+    (this.y1 <= tierra.height) &&
+    (this.x2 <= tierra.x + tierra.width) &&
+    (this.x2 >= tierra.x + tierra.width/4.5)
+  }
+
+    crashWhit2(enemy){  
+    return this.x2 <= enemy.x + enemy.width &&
+    this.x2 >= enemy.x &&
+    this.y1 <= enemy.y + enemy.width&&
+    this.y1 >= 0 
+   
+    }
 }
-
-                // return (
-                //   this.x < enemy.x + enemy.w &&
-                //   this.x + this.w > enemy.x &&
-                //   this.y < enemy.y + enemy.w &&
-                //   this.y + this.w > enemy.y
-                // );

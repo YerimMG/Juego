@@ -8,7 +8,7 @@ canvas.height = window.innerHeight - 50;
 
 //CLASES
 class Player {
-  constructor(x, y, z) {
+  constructor(x, y, z, f) {
     this.x = x;
     this.y = y;
     this.color = z;
@@ -18,17 +18,18 @@ class Player {
 
     this.life = 5;
 
-    this.keyPush = false
-    this.keyUp = false
+    this.keyPush = f
+    this.keyUp = f
   }
   moveLeft(top) {
     if (this.x > top) {
-      this.x -= 5;
+      this.x -= 10;
+      
     }
   }
   moveRight(top) {
     if (this.x < top) 
-      this.x += 5;
+      this.x += 10;
   }
   velocidad1() {
     if(this.velocidad1 = new Date().getTime()){
@@ -43,11 +44,16 @@ class Player {
   }
   velocidadFinal(){
     this.velocidad = Math.floor(((this.velocidad1 - this.velocidad2) * -1) / 10);
-    if(this.velocidad > 100){
-      this.velocidad = 200
-    }
+    if(this.velocidad > 105){
+      this.velocidad = 110
 
-  }
+    }
+ }
+
+ change(){
+   this.keyPush = false
+   this.keyUp = false
+ }
 
   drawPlayer() {
     ctx.fillStyle = this.color;
