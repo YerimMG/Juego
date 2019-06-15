@@ -1,3 +1,4 @@
+
 //VARIABLES
 var canvas = document.getElementById("example");
 var ctx = canvas.getContext("2d");
@@ -42,7 +43,7 @@ class Proyectil {
       this.width,
       this.height
     );
-    // console.log("y=", this.y1, "x=", this.x1);
+
   }
 
   drawShot2() {
@@ -59,8 +60,8 @@ class Proyectil {
     return  (this.y1 < 0) ||
       (this.x1 >= canvas.width) ||
       (this.y1 <= tierra.height) &&
-      (this.x1 >= tierra.x - tierra.width / 4.5)&&
-      (this.x1 <= tierra.x + tierra.width / 4.5)
+      (this.x1 >= tierra.x - tierra.width/4.5) &&
+      (this.x1 <= tierra.x + tierra.width)
   }
 
   crashWhit1(enemy){

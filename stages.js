@@ -15,12 +15,12 @@ class Board {
     this.gravedad = -10; //AGregar la gravedad segun el escenario escogido
   }
   drawTerra() {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "	#123346";
     ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.save();
   }
   obstacule (){
-    ctx.strokeStyle = "#FF0000";
+    ctx.strokeStyle = "#123346";
     ctx.lineWidth = 3;
     ctx.strokeRect(this.x, this.y, this.width, this.height*this.height);
     

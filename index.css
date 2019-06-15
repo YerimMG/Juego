@@ -1,16 +1,90 @@
+
 *{
-  background-color: black;
-  /* background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/04/Abstract-minimalist-wallpaper-HD-desktop-download.png); */
-  background-repeat: no-repeat;
-  background-size: 90%
-}
-canvas {
-  background-color: black;
-  border: 1px solid black;
-  /* display: flex; */
-  /* background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/04/Abstract-minimalist-wallpaper-HD-desktop-download.png);
-  background-repeat: no-repeat;
-  background-size: 1000px;
-   background-attachment: fixed; */
+  background-color:	#176478;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
+/*-------------------------------------------------------
+.                      JUEGO                              
+--------------------------------------------------------- */
+
+ canvas {
+  border-color:1px #123346;
+  background-color: #176478;
+}
+
+#grad20, #grad, #lifes, #vel1{
+  font-size: 30px;
+  color: white;
+  border: 1px #123346;
+  font-family: 'Josefin Sans', sans-serif;
+  width: 110px;
+  height: 25px; 
+}
+#box{
+display: flex;
+justify-content: space-between ;
+ color: white;
+}
+/*-------------------------------------------------------
+.                       INICIO                              
+--------------------------------------------------------- */
+#title{
+  margin-top: 150px;
+  color: white;
+  font-size: 250px;
+  border: 10px solid white;
+  padding: 40px;
+  text-align: center;
+  margin: 100px auto auto auto;
+  width: 700px;
+  padding-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#buttons{
+  margin-top: 25px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  text-align: center;
+}
+#star{
+  margin-right: 100px;
+  background-color:#FD7D4C;
+  height: 70px;
+  width: 150px;
+  border: none;
+  border-radius: 20px;
+  font-size: 25px;
+  color: white;
+}
+#instructions{
+  background-color:#FD7D4C;
+  height: 70px;
+  width: 210px;
+  border-radius: 20px;
+  border: none;
+  font-size: 25px;
+  color: white;
+}
+/*-------------------------------------------------------
+-                      FOOTER                              
+--------------------------------------------------------- */
+footer{
+
+  display: flex;
+  justify-content: center;
+  color: #123346;
+}
+/*-------------------------------------------------------
+.                      INSTRUCTIONS                              
+--------------------------------------------------------- */
+
+#all{
+  color: white;
+  padding: 50px;
+}
